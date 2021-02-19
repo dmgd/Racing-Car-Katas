@@ -19,6 +19,15 @@ class LeaderboardTest {
     }
 
     @Test
+    fun itShouldReportCalculatedSelfDrivingCarName() {
+        val race1 = Race("Australian Grand Prix", SelfDrivingCar("1.3", "Honda"))
+
+        val results = Leaderboard(race1).driverResults()
+
+        assertTrue("results $results", results.containsKey("Self Driving Car - Honda (1.3)"))
+    }
+
+    @Test
     fun isShouldFindTheWinner() {
         val race1 = Race("Australian Grand Prix", driver1, driver2, driver3)
         val race2 = Race("Malaysian Grand Prix", driver3, driver2, driver1)
