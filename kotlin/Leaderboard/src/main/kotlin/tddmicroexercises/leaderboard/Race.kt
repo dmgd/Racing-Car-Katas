@@ -3,14 +3,16 @@ package tddmicroexercises.leaderboard
 class Race(private val name: String, vararg val drivers: Driver) {
 
     fun getPoints(driver: Driver) =
-        POINTS[drivers.indexOf(driver)]
+        when (drivers.indexOf(driver)) {
+            0 -> 25
+            1 -> 18
+            2 -> 15
+            else -> 0
+        }
 
     fun getDriverName(driver: Driver) =
         driver.name.takeIf { driver in drivers }
 
-    override fun toString() = name
-
-    companion object {
-        private val POINTS = arrayOf(25, 18, 15)
-    }
+    override fun toString() =
+        name
 }
