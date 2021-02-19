@@ -2,24 +2,15 @@ package tddmicroexercises.leaderboard
 
 class Race(private val name: String, vararg val drivers: Driver) {
 
-    private fun position(driver: Driver): Int {
-        return this.drivers.indexOf(driver)
-    }
+    fun getPoints(driver: Driver) =
+        POINTS[drivers.indexOf(driver)]
 
-    fun getPoints(driver: Driver): Int {
-        return POINTS[position(driver)]
-    }
+    fun getDriverName(driver: Driver) =
+        driver.name.takeIf { driver in drivers }
 
-    fun getDriverName(driver: Driver): String? {
-        return driver.name.takeIf { driver in drivers }
-    }
-
-    override fun toString(): String {
-        return name
-    }
+    override fun toString() = name
 
     companion object {
-
         private val POINTS = arrayOf(25, 18, 15)
     }
 }
