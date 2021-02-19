@@ -13,7 +13,7 @@ class Leaderboard(vararg races: Race) {
     fun driverResults(): Map<String, Int> {
         val results = HashMap<String, Int>()
         for (race in this.races) {
-            for (driver in race.results) {
+            for (driver in race.drivers) {
                 val driverName = race.getDriverName(driver)
                 val points = race.getPoints(driver)
                 if (results.containsKey(driverName)) {
