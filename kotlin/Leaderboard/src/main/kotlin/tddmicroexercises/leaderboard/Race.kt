@@ -8,11 +8,7 @@ class Race(private val name: String, vararg drivers: Driver) {
         this.results = arrayListOf(*drivers)
         this.driverNames = HashMap()
         for (driver in results) {
-            var driverName = driver.name
-            if (driver is SelfDrivingCar) {
-                driverName = "Self Driving Car - " + driver.country + " (" + driver.algorithmVersion + ")"
-            }
-            this.driverNames[driver] = driverName
+            this.driverNames[driver] = driver.name
         }
     }
 
