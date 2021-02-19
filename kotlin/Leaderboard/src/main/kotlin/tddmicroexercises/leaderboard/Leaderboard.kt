@@ -2,17 +2,11 @@ package tddmicroexercises.leaderboard
 
 import java.util.*
 
-class Leaderboard(vararg races: Race) {
-
-    private val races: List<Race>
-
-    init {
-        this.races = arrayListOf(*races)
-    }
+class Leaderboard(private vararg val races: Race) {
 
     fun driverResults(): Map<String, Int> {
         val results = HashMap<String, Int>()
-        for (race in this.races) {
+        for (race in races) {
             for (driver in race.drivers) {
                 val driverName = race.getDriverName(driver)
                 val points = race.getPoints(driver)
