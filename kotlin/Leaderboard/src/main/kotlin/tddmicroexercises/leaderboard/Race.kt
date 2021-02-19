@@ -19,7 +19,7 @@ class Race(private val name: String, vararg val drivers: Driver) {
     }
 
     fun getDriverName(driver: Driver): String? {
-        return this.driverNames[driver]
+        return driver.name.takeIf { driver in drivers }
     }
 
     override fun toString(): String {
