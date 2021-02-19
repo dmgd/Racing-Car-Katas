@@ -1,13 +1,8 @@
 package tddmicroexercises.leaderboard
 
-import org.junit.Test
-
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
-
-import tddmicroexercises.leaderboard.TestData.driver1
-import tddmicroexercises.leaderboard.TestData.driver2
-import tddmicroexercises.leaderboard.TestData.driver3
+import org.junit.Test
 
 class LeaderboardTest {
 
@@ -16,7 +11,7 @@ class LeaderboardTest {
         // setup
 
         // act
-        val results = TestData.sampleLeaderboard1.driverResults()
+        val results = Leaderboard(race1, race2, race3).driverResults()
 
         // verify
         assertTrue("results $results", results.containsKey("Lewis Hamilton"))
@@ -28,7 +23,7 @@ class LeaderboardTest {
         // setup
 
         // act
-        val result = TestData.sampleLeaderboard1.driverRankings()
+        val result = Leaderboard(race1, race2, race3).driverRankings()
 
         // verify
         assertEquals("Lewis Hamilton", result.get(0))
@@ -51,3 +46,11 @@ class LeaderboardTest {
     }
 
 }
+
+private val driver1 = Driver("Nico Rosberg", "DE")
+private val driver2 = Driver("Lewis Hamilton", "UK")
+private val driver3 = Driver("Sebastian Vettel", "DE")
+
+private val race1 = Race("Australian Grand Prix", driver1, driver2, driver3)
+private val race2 = Race("Malaysian Grand Prix", driver3, driver2, driver1)
+private val race3 = Race("Chinese Grand Prix", driver2, driver1, driver3)
