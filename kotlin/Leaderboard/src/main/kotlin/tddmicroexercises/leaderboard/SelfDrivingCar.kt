@@ -1,3 +1,4 @@
 package tddmicroexercises.leaderboard
 
-class SelfDrivingCar(var algorithmVersion: String, company: String) : Driver(algorithmVersion, company)
+object SelfDrivingCar : Driver("", "") { val algorithmVersion = "" }
+fun SelfDrivingCar(algorithmVersion: String, country: String) = Driver("Self Driving Car - $country ($algorithmVersion)", country)
